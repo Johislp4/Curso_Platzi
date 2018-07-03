@@ -24,12 +24,14 @@ $queryResult = $pdo->query("SELECT * FROM users");// query es un método de la c
   <body>
     <div class="container">
       <h1>List Users</h1>
-      <a href="index2.php">List Users</a>
+      <a href="index2.php">Home</a>
 
       <table class = "table">
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
 
         <?php
@@ -37,6 +39,8 @@ $queryResult = $pdo->query("SELECT * FROM users");// query es un método de la c
             echo '<tr>';
             echo '<td>' . $row['name'] . '</td>';
             echo '<td>' . $row['email'] . '</td>';
+            echo '<td><a href="update.php?id='.$row['id'].'">Edit</a></td>';//El id que pasamos a través de row corresponde a los id que aparecen en la base de datos
+            echo '<td><a href="delete.php?id='.$row['id'].'">Delete</a></td>';//El id que pasamos a través de row corresponde a los id que aparecen en la base de datos
             echo "</tr>";
         }
         ?>

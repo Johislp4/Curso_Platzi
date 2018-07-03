@@ -12,7 +12,7 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//ERRMODE_EXCEPTION es el modo de error global de php que utilizaremos
 
 } catch (Exception $e) {
-  echo $e->getMessage("error al conectar");
+  echo $e->getMessage();
 }
 
 
