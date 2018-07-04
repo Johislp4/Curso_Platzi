@@ -4,9 +4,7 @@ require_once 'config.php';
 
 $queryResult = $pdo->query("SELECT * FROM users");// query es un método de la clase PDO que permite realizar la consulta SELECT
 
-//El método fetch utilizado sobre $queryResult regresa uno por uno los registros que estamos obteniendo de la consulta,
-//la asignación se hace a la variable $row, cuando fetch no tenga elementos para regresar va a arrojar un false y terminará el ciclo
-//FETCH_ASSOC es una de las opciones de retorno que tiene el método fetch, PHP tiene otros tipos de retorno (mirar la documentación de php)
+
 
 
  ?>
@@ -35,6 +33,9 @@ $queryResult = $pdo->query("SELECT * FROM users");// query es un método de la c
         </tr>
 
         <?php
+        //El método fetch utilizado sobre $queryResult regresa uno por uno los registros que estamos obteniendo de la consulta,
+        //la asignación se hace a la variable $row, cuando fetch no tenga elementos para regresar va a arrojar un false y terminará el ciclo
+        //FETCH_ASSOC es una de las opciones de retorno que tiene el método fetch, PHP tiene otros tipos de retorno (mirar la documentación de php)
         while ($row = $queryResult->fetch(PDO::FETCH_ASSOC)) {
             echo '<tr>';
             echo '<td>' . $row['name'] . '</td>';

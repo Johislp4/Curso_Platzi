@@ -50,13 +50,13 @@ $result = $query->execute([ //con execute podemos pasar un arreglo relacional en
     ?>
       <form action="add.php" method="post">
         <label for="name">Name</<label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
         <br>
         <label for="email">Email</<label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" required>
         <br>
         <label for="password">Password</<label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <br>
         <br>
         <input class="btn btn-sm btn-primary" type="submit" value="Save">
