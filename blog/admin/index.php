@@ -1,12 +1,3 @@
-<?php
-include_once 'config.php';
-$query = $pdo->prepare('SELECT * FROM blog_posts ORDER BY id DESC'); //esta consulta quiere decir que queremos que nos de el id más reciente siempre al principio
-$query->execute();
-
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC); //se crea una nueva variable donde se van a traer todos los blogpost de nuestra base de datos. FetchAll se trae todos los registros que se obtuvieron en la consulta
-
- ?>
-
 
 <!-- Creando la vista inicial de mi blog-->
 <html>
@@ -27,24 +18,13 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC); //se crea una nueva variable do
 
     <div class="row">
       <div class="col-md-8">
+        <ul>
+          <li>
+            <a href="posts.php">Manage Posts</a>
+          </li>
 
-      <?php
-      //En este bloque php vamos a insertar los valores que estamos leyendo de nuestras entradas
-      foreach($blogPosts as $blogPost){
-        echo '<div class="blog-post">';
-        echo '<h2> '. $blogPost['title'] . '</h2>';
-        echo '<p>jan 1, 2020 by <a href="">Alex</a></p>';
-        echo '<div class="blog-post-image">';
-        echo '<img src="images/bosque.jpg" alt="" height="300" width="650">';
-        echo '</div>';
-        echo '<div class="blog-post-content">';
-        echo $blogPost['content'];
-        echo '</div>';
-        echo '</div>';
+        </ul>
 
-      }
-
-       ?>
 
 
 
@@ -59,7 +39,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC); //se crea una nueva variable do
       <div class="col-md-12">
         <footer>
           This is a footer<br>
-          <a href="admin/admin.php">Admin Panel</a>
+          <a href="index.php">Admin Panel</a>
 
         </footer>
 

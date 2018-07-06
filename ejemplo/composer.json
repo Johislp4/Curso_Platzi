@@ -1,0 +1,6 @@
+{
+    "require": {
+        "doctrine/inflector": "^1.3",
+        "nesbot/carbon": "^1.32"
+    }
+}

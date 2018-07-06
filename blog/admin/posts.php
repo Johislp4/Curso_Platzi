@@ -1,5 +1,6 @@
 <?php
-include_once '../config.php';//en este caso tenemos que especificar la rutadonde se encuentra el archivo, ya que no está en el directorio actual, sino en un directorio superior
+//include_once '../config.php';
+//en este caso tenemos que especificar la rutadonde se encuentra el archivo, ya que no está en el directorio actual, sino en un directorio superior
 $query = $pdo->prepare('SELECT * FROM blog_posts ORDER BY id DESC'); //esta consulta quiere decir que queremos que nos de el id más reciente siempre al principio
 $query->execute();
 
@@ -67,7 +68,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC); //se crea una nueva variable do
       <div class="col-md-12">
         <footer>
           This is a footer<br>
-          <a href="admin/index.php">Admin Panel</a>
+          <a href="index.php">Admin Panel</a>
 
         </footer>
 

@@ -1,6 +1,18 @@
 <?php
-include_once '../config.php';//en este caso tenemos que especificar la rutadonde se encuentra el archivo, ya que no está en el directorio actual, sino en un directorio superior
+//include_once '../config.php';
 
+//guardando los blogposts que estamos creando con nuestro formulario
+$result = false;
+
+if (!empty($_POST)){
+  $sql = 'INSERT INTO blog_posts (title, content) VALUES (:title, :content)';
+  $query = $pdo->prepare($sql);
+  $result = $query->execute([
+    'title'=> $_POST['title'],
+    'content'=> $_POST['content']
+  ]);
+
+}
  ?>
 
 
@@ -25,14 +37,24 @@ include_once '../config.php';//en este caso tenemos que especificar la rutadonde
 
       <div class="col-md-8">
         <h2>New Post</h2>
-        <a class="btn btn-default" href="posts.php">Back</a>
+        <p>
+          <a class="btn btn-default" href="posts.php">Back</a>
+        </p>
+<!-- Este bloque PHP nos permite mostrarun mensaje de éxito de la consulta -->
+        <?php
+         if ($result) {
+           echo '<div class="alert alert-success">Post Saved!</div>';
+         }
+
+         ?>
+
   <!--en esta sección vamos a agregar un nuevo formulario después del botón "Back"-->
         <form action="insert-post.php" method="post">
           <div class="form-group">
             <label for="inputTitle">Title</label>
             <input type="text" class="form-control" name="title" id="inputTitle">
           </div>
-          <textarea class="form-control"name="content"id="inputContet" rows="5"></textarea>
+          <textarea class="form-control "name="content" id="inputContet" rows="5"></textarea>
           <br>
           <input class="btn btn-primary" type="submit" value="Save">
         </form>
@@ -50,7 +72,7 @@ include_once '../config.php';//en este caso tenemos que especificar la rutadonde
       <div class="col-md-12">
         <footer>
           This is a footer<br>
-          <a href="admin/index.php">Admin Panel</a>
+          <a href="index.php">Admin Panel</a>
 
         </footer>
 

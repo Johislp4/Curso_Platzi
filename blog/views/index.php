@@ -18,13 +18,24 @@
 
     <div class="row">
       <div class="col-md-8">
-        <ul>
-          <li>
-            <a href="posts.php">Manage Posts</a>
-          </li>
 
-        </ul>
+      <?php
+      //En este bloque php vamos a insertar los valores que estamos leyendo de nuestras entradas
+      foreach($blogPosts as $blogPost){
+        echo '<div class="blog-post">';
+        echo '<h2> '. $blogPost['title'] . '</h2>';
+        echo '<p>jan 1, 2020 by <a href="">Alex</a></p>';
+        echo '<div class="blog-post-image">';
+        echo '<img src="images/bosque.jpg" alt="" height="300" width="650">';
+        echo '</div>';
+        echo '<div class="blog-post-content">';
+        echo $blogPost['content'];
+        echo '</div>';
+        echo '</div>';
 
+      }
+
+       ?>
 
 
 
